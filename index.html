@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body style="background-image: url(bg.jpg); background-size: 200px">
+	<h5 style="font-size: 30px"> очки: <span class="score">0</span></h5>
+	<h5 style="font-size: 35px"> Жуки: <span class="beetles">0</span></h5>
+<script type="text/javascript">
+	let score = 0
+	let beetles = 0
+
+	let game= function(){
+		let  rand = Math.random()*1200
+		let rand2 = Math.random()*500		
+		let nasekomoe = document.createElement('img')
+    	document.body.appendChild(nasekomoe)
+    	nasekomoe.src = "img.svg"
+    	nasekomoe.style.width = "120px"
+    	nasekomoe.style.height = "120px"
+    	nasekomoe.style.marginLeft = rand + "px"
+    	nasekomoe.style.marginTop = rand2 + "px"
+    	nasekomoe.style.position = "absolute"
+    	beetles = beetles + 1
+    	document.querySelector(".beetles").innerHTML = beetles
+    	nasekomoe.onclick = function(){
+    		nasekomoe.style.display = "none"
+    		score = score + 10
+    		document.querySelector(".score").innerHTML = score
+    	}
+	    }
+    	let interv = setInterval(game,1000)
+    	
+    	
+      	
+      
+    let proverka = function() {//созда
+    	clearInterval(interv)
+		if ( score  >= 100  ) {
+		alert("аеее, you win")
+    
+    	}
+    	else {
+  		alert("oу, ты проиграл, хехе")
+    	}
+        }
+       setTimeout(proverka,11000)
+
+		
+  
+
+
+</script>
+</body>
+</html>
